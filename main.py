@@ -4,6 +4,7 @@ import glob
 import os
 import blur
 import shutil
+import grayscale
 
 if os.path.exists('./textures'):
     a = input('./textures already exists. Do you want to remove it? [y/n] ')
@@ -23,14 +24,18 @@ with zipfile.ZipFile(path,"r") as zip_ref:
 
 print("Done. File was extracted to ./textures")
 time.sleep(.5)
-a = input("\nWhat effect do you want to add to this texturepack? [blur/cancel] ")
+a = input("\nWhat effect do you want to add to this texturepack? [blur/grayscale/cancel] ")
 
 if a.lower() == "blur":
     print("Working...")
     blur.convert()
-elif a.lower() == "cancel":
+elif a.lower() == "grayscale":
+    print("Working... (hopefully)")
+    grayscale.convert()
+else:
     print("Ok, won't add any filters.")
     exit()
+
 
 a = input('finished! Would you like to put it back as a zip? (Will not overwrite old file, will make a new one) [y/n] ')
 if a.lower() == "y":
