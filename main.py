@@ -5,6 +5,8 @@ import os
 import blur
 import shutil
 import grayscale
+import randomcolor
+import pixelswap
 
 if os.path.exists('./textures'):
     a = input('./textures already exists. Do you want to remove it? [y/n] ')
@@ -24,7 +26,7 @@ with zipfile.ZipFile(path,"r") as zip_ref:
 
 print("Done. File was extracted to ./textures")
 time.sleep(.5)
-a = input("\nWhat effect do you want to add to this texturepack? [blur/grayscale/cancel] ")
+a = input("\nWhat effect do you want to add to this texturepack? [blur/grayscale/randomcolor/pixelswap/cancel] ")
 
 if a.lower() == "blur":
     print("Working...")
@@ -32,6 +34,14 @@ if a.lower() == "blur":
 elif a.lower() == "grayscale":
     print("Working... (hopefully)")
     grayscale.convert()
+elif a.lower() == "randomcolor":
+    print("Warning: randomcolor is pretty slow, as it loops through every single pixel inside of every image.")
+    time.sleep(3)
+elif a.lower() == "pixelswap":
+    print("pixelswap is pretty slow.")
+    time.sleep(.5)
+    print('working...')
+    pixelswap.convert()
 else:
     print("Ok, won't add any filters.")
     exit()
