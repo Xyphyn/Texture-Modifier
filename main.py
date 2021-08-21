@@ -14,6 +14,7 @@ import swaptextures
 import swapaudio
 import rgbmax
 import blackscale
+import invert
 
 if os.path.exists('./textures'):
     a = input('./textures already exists. Do you want to remove it? [y/n] ')
@@ -35,7 +36,7 @@ else:
 
     print("Done. File was extracted to ./textures")
 time.sleep(.5)
-a = input("\nWhat effect do you want to add to this texturepack? [blur/grayscale/randomcolor/pixelswap/fold/foldsideways/upsidedown/swaptextures/swapaudio/blackscale/rgbmax/cancel] ")
+a = input("\nWhat effect do you want to add to this texturepack? [blur/grayscale/randomcolor/pixelswap/fold/foldsideways/upsidedown/swaptextures/swapaudio/blackscale/rgbmax/invert/cancel] ")
 
 if a.lower() == "blur":
     print("Working...")
@@ -71,6 +72,8 @@ elif a.lower() == "rgbmax":
     rgbmax.convert()
 elif a.lower() == "blackscale":
     blackscale.convert()
+elif a.lower() == "invert":
+    invert.convert()
 else:
     print("Ok, won't add any filters.")
     exit()
